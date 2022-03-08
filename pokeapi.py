@@ -2,7 +2,7 @@ import requests
 import json
 
 class PokeAPI:
-
+#default constructor for lib implementation
     def __init__(self):
         return
 
@@ -37,7 +37,8 @@ class PokeAPI:
         relatorio = [name,types,abilities,stats,officialArt]
         return relatorio
 
-    #retorna dicionario de acordo com o nome do pokemon consultado
+#retorns dictionary according to the search by pokemon name. Works with any capitalization
+#prints error 404 in case a pokemon was not found.
     def consulta(self,nome):
         try:
             req = requests.get('https://pokeapi.co/api/v2/pokemon/' + str.lower(nome))
@@ -45,7 +46,7 @@ class PokeAPI:
             return self.__relatorio1(dicionario)
         except:
             print("Erro na conexao " + str(req.status_code) + ": Pokemon " + nome + " nao encontrado.")
-            return ["N/A"]
+            return None
 
 
 
