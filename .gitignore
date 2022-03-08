@@ -1,5 +1,8 @@
 test.py
 test.txt
 notes.py
+
+__pycache__/
 *.pyc
 
+__pycache__/pokeapi.cpython-310.pyc
