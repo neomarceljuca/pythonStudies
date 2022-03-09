@@ -2,6 +2,7 @@ from pokeapi import PokeAPI
 from weatherapi import weatherAPI
 import pprint
 import os
+
 #setup
 
 #helper methods
@@ -21,6 +22,7 @@ while opt != 0:
     #Open Weather
         mykey = input("Open Weather-\nInsert OpenWeather APIKey:\n")
         weatherapi = weatherAPI(mykey)
+
         exit = False
         while not exit:
             op = input("Input a city name or EXIT to leave to main menu.")
@@ -29,7 +31,7 @@ while opt != 0:
                 clearScreen()
                 continue
             else:
-                pesquisa1 = weatherapi.requisicao()
+                pesquisa1 = weatherapi.requisicao(op)
                 if pesquisa1 is None:
                     continue
             pprint.pprint(pesquisa1)
